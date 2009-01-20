@@ -2,7 +2,7 @@
 ## This shell script extracts 2D charges from a given
 ## Input File which is in the Gateway SIF format.
 
-file_nm=$1
+file_nm=${1}
 
 nawk '{
 	record_ty=substr($0,121,2);
@@ -15,5 +15,4 @@ nawk '{
 		svc_nm_desc=substr($0,134,45);
 		print "[" svc_nm_desc "] [" circuit_id "]";
 	}
-}' $file_nm 
-
+}' ${file_nm}
