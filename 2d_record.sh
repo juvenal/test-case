@@ -7,7 +7,7 @@ file_nm=${1}
 nawk '{
 	record_ty=substr($0,121,2);
 	svc_reqst_desc=substr($0,80,20);
-	
+
 	if ((record_ty == "2D") && (svc_reqst_desc == "CONTR LEVEL DISCOUNT")) {
 		print $0;
 	}
