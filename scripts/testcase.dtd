@@ -1,0 +1,75 @@
+<!ELEMENT testcase (docinfo, script, summary)>
+<!ELEMENT docinfo (name, description, objectives, activities)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT objectives (entry)+>
+<!ELEMENT entry (#PCDATA)>
+<!ELEMENT activities (activity)+>
+<!ELEMENT activity (id, description)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT script (feeds | commands | compare)+>
+<!ELEMENT feeds (feed)+>
+<!ELEMENT feed (activityid, pathname)>
+<!ELEMENT activityid (#PCDATA)>
+<!ELEMENT pathname (#PCDATA)>
+<!ELEMENT commands (command)+>
+<!ELEMENT command (parameters)>
+<!ELEMENT base (#PCDATA)>
+<!ELEMENT parameters (parameter)+>
+<!ELEMENT parameter EMPTY>
+<!ELEMENT compare (query | file)+>
+
+<!ELEMENT query (joins*, conditions, validations)>
+<!ELEMENT joins (name, conditions)>
+<!ELEMENT conditions (andblock | orblock | eq | ne | gt | gte | lt | lte)>
+<!ELEMENT andblock (andblock | orblock | eq | ne | gt | gte | lt | lte)+>
+<!ELEMENT orblock (orblock | andblock | eq | ne | gt | gte | lt | lte)+>
+<!ELEMENT validations (validation)+>
+<!ELEMENT validation EMPTY>
+
+<!ELEMENT file (name, conditions, checks)>
+<!ELEMENT checks (check)+>
+<!ELEMENT check (rectype*, nested*, validation)>
+<!ELEMENT nasted (rectype, nested*, conditions)>
+
+
+
+<!ELEMENT summary (description)+>
+
+<!ELEMENT eq EMPTY>
+<!ELEMENT ne EMPTY>
+<!ELEMENT gt EMPTY>
+<!ELEMENT lt EMPTY>
+<!ELEMENT gte EMPTY>
+<!ELEMENT lte EMPTY>
+
+<!ATTLIST file
+          type (columns|fields) "fields">
+<!ATTLIST eq
+          item  CDATA #REQUIRED
+          value CDATA #REQUIRED>
+<!ATTLIST gt
+          item  CDATA #REQUIRED
+          value CDATA #REQUIRED>
+<!ATTLIST gte
+          item  CDATA #REQUIRED
+          value CDATA #REQUIRED>
+<!ATTLIST lt
+          item  CDATA #REQUIRED
+          value CDATA #REQUIRED>
+<!ATTLIST lte
+          item  CDATA #REQUIRED
+          value CDATA #REQUIRED>
+<!ATTLIST ne
+          item  CDATA #REQUIRED
+          value CDATA #REQUIRED>
+<!ATTLIST validation
+          field    CDATA #REQUIRED
+          expected CDATA #REQUIRED>
+<!ATTLIST command
+          name CDATA #REQUIRED>
+<!ATTLIST parameter
+          key   CDATA #REQUIRED
+          value CDATA #IMPLIED>
+<!ATTLIST query
+          table CDATA #REQUIRED>

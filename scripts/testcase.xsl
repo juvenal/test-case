@@ -1,0 +1,1 @@
+<xsl:output method="xml" indent="yes"/>

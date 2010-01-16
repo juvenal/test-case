@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE testcase SYSTEM "testcase.dtd">
+<testcase>
+  <docinfo>
+    <name>...</name>
+    <description>...</description>
+    <objectives>
+      <entry>...</entry>
+      <entry>...</entry>
+      <entry>...</entry>
+      <entry>...</entry>
+    </objectives>
+    <activities>
+      <activity>
+        <id>...</id>
+        <description>...</description>
+      </activity>
+      <activity>
+        <id>...</id>
+        <description>...</description>
+      </activity>
+    </activities>
+  </docinfo>
+  <script>
+    <feeds>
+      <feed>
+        <activityid>...</activityid>
+        <pathname>TC751_F000</pathname>
+      </feed>
+      <feed>
+        <activityid>...</activityid>
+        <pathname>TC751_F001</pathname>
+      </feed>
+    </feeds>
+    <commands>
+      <command name="ansb_batch">
+        <parameters>
+          <parameter key="v"/>
+          <parameter key="s" value="000000"/>
+          <parameter key="e" value="999999"/>
+        </parameters>
+      </command>
+    </commands>
+    <compare>
+      <query table="...">
+        <conditions>
+          <andblock>
+            <eq item="..." value="..."/>
+            <ne item="..." value="..."/>
+            <lte item="..." value="..."/>
+            <orblock>
+              <gt item="..." value="..."/>
+              <lt item="..." value="..."/>
+            </orblock>
+            <gte item="..." value="..."/>
+          </andblock>
+        </conditions>
+        <validations>
+          <validation field="..." expected="..."/>
+          <validation field="..." expected="..."/>
+        </validations>
+      </query>
+      <file type="columns">
+        <name>...</name>
+        <conditions>
+          ...
+        </conditions>
+        <checks>
+          ...
+        </checks>
+      </file>
+      <file type="fields">
+        <name>...</name>
+        <conditions>
+          ...
+        </conditions>
+        <checks>
+          ...
+        </checks>
+      </file>
+    </compare>
+  </script>
+  <summary>
+    <description>...</description>
+  </summary>
+</testcase>
