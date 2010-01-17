@@ -20,19 +20,17 @@
 <!ELEMENT compare (query | file)+>
 
 <!ELEMENT query (joins*, conditions, validations)>
-<!ELEMENT joins (name, conditions)>
+<!ELEMENT joins (conditions)>
 <!ELEMENT conditions (andblock | orblock | eq | ne | gt | gte | lt | lte)>
 <!ELEMENT andblock (andblock | orblock | eq | ne | gt | gte | lt | lte)+>
 <!ELEMENT orblock (orblock | andblock | eq | ne | gt | gte | lt | lte)+>
 <!ELEMENT validations (validation)+>
 <!ELEMENT validation EMPTY>
 
-<!ELEMENT file (name, conditions, checks)>
+<!ELEMENT file (name, checks)>
 <!ELEMENT checks (check)+>
-<!ELEMENT check (rectype*, nested*, validation)>
+<!ELEMENT check (rectype*, nested*, conditions, validation)>
 <!ELEMENT nasted (rectype, nested*, conditions)>
-
-
 
 <!ELEMENT summary (description)+>
 
@@ -72,4 +70,6 @@
           key   CDATA #REQUIRED
           value CDATA #IMPLIED>
 <!ATTLIST query
+          table CDATA #REQUIRED>
+<!ATTLIST join
           table CDATA #REQUIRED>

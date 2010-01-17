@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<texto>Ola mundo!
+<doc>
+  <base teste="123" base="456"/>
+  <texto>Ola mundo!
 Esta é minha primeira pagina gerada com python</texto>
+</doc>
