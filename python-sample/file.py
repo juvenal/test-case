@@ -6,15 +6,19 @@ import codecs
 # variáveis
 text_name = "exemplo"
 
-#f = open(text_name+".html",'w+')
 f = codecs.open(text_name + ".html", 'w+', 'iso-8859-1')
 
 # parse text
 from parseText import ParseText
 
-print "Informe o arquivo XML para processamento: "
+print "Informe o arquivo XML para processamento:"
+try:
+    xmlfile = raw_input('xml file => ')
+except EOFError:
+    
+else:
+    texto = ParseText(xmlfile)
 
-texto = ParseText('pagina.xml')
 f.write(texto+'\n')
 
 # script identifier
