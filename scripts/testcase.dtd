@@ -20,17 +20,19 @@
 <!ELEMENT compare (query | file)+>
 
 <!ELEMENT query (joins*, conditions, validations)>
-<!ELEMENT joins (conditions)>
-<!ELEMENT conditions (andblock | orblock | eq | ne | gt | gte | lt | lte)>
-<!ELEMENT andblock (andblock | orblock | eq | ne | gt | gte | lt | lte)+>
-<!ELEMENT orblock (orblock | andblock | eq | ne | gt | gte | lt | lte)+>
+<!ELEMENT joins (join)+>
+<!ELEMENT join (conditions)>
+<!ELEMENT conditions (andblock | orblock | eq | ne | gt | ge | lt | le)>
+<!ELEMENT andblock (andblock | orblock | eq | ne | gt | ge | lt | le)+>
+<!ELEMENT orblock (orblock | andblock | eq | ne | gt | ge | lt | le)+>
 <!ELEMENT validations (validation)+>
 <!ELEMENT validation EMPTY>
 
 <!ELEMENT file (name, checks)>
 <!ELEMENT checks (check)+>
-<!ELEMENT check (rectype*, nested*, conditions, validation)>
-<!ELEMENT nasted (rectype, nested*, conditions)>
+<!ELEMENT check (rectype*, super*, conditions, validations)>
+<!ELEMENT super (rectype, super*, conditions)>
+<!ELEMENT rectype (#PCDATA)>
 
 <!ELEMENT summary (description)+>
 
@@ -38,28 +40,28 @@
 <!ELEMENT ne EMPTY>
 <!ELEMENT gt EMPTY>
 <!ELEMENT lt EMPTY>
-<!ELEMENT gte EMPTY>
-<!ELEMENT lte EMPTY>
+<!ELEMENT ge EMPTY>
+<!ELEMENT le EMPTY>
 
 <!ATTLIST file
           type (columns|fields) "fields">
 <!ATTLIST eq
-          item  CDATA #REQUIRED
+          field CDATA #REQUIRED
           value CDATA #REQUIRED>
 <!ATTLIST gt
-          item  CDATA #REQUIRED
+          field CDATA #REQUIRED
           value CDATA #REQUIRED>
-<!ATTLIST gte
-          item  CDATA #REQUIRED
+<!ATTLIST ge
+          field CDATA #REQUIRED
           value CDATA #REQUIRED>
 <!ATTLIST lt
-          item  CDATA #REQUIRED
+          field CDATA #REQUIRED
           value CDATA #REQUIRED>
-<!ATTLIST lte
-          item  CDATA #REQUIRED
+<!ATTLIST le
+          field CDATA #REQUIRED
           value CDATA #REQUIRED>
 <!ATTLIST ne
-          item  CDATA #REQUIRED
+          field CDATA #REQUIRED
           value CDATA #REQUIRED>
 <!ATTLIST validation
           field    CDATA #REQUIRED
@@ -72,4 +74,5 @@
 <!ATTLIST query
           table CDATA #REQUIRED>
 <!ATTLIST join
+          type  CDATA #IMPLIED
           table CDATA #REQUIRED>

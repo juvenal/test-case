@@ -43,16 +43,23 @@
     </commands>
     <compare>
       <query table="...">
+        <joins>
+          <join table="...">
+            <conditions>
+              <eq field="..." value="..."/>
+            </conditions>
+          </join>
+        </joins>
         <conditions>
           <andblock>
-            <eq item="..." value="..."/>
-            <ne item="..." value="..."/>
-            <lte item="..." value="..."/>
+            <eq field="..." value="..."/>
+            <ne field="..." value="..."/>
+            <le field="..." value="..."/>
             <orblock>
-              <gt item="..." value="..."/>
-              <lt item="..." value="..."/>
+              <gt field="..." value="..."/>
+              <lt field="..." value="..."/>
             </orblock>
-            <gte item="..." value="..."/>
+            <ge field="..." value="..."/>
           </andblock>
         </conditions>
         <validations>
@@ -62,20 +69,43 @@
       </query>
       <file type="columns">
         <name>...</name>
-        <conditions>
-          ...
-        </conditions>
         <checks>
-          ...
+          <check>
+            <rectype>...</rectype>
+            <super>
+              <rectype>...</rectype>
+              <super>
+                <rectype>...</rectype>
+                <conditions>
+                  <eq field="..." value="..."/>
+                </conditions>
+              </super>
+              <conditions>
+                <ne field="..." value="..."/>
+              </conditions>
+            </super>
+            <conditions>
+              <le field="..." value="..."/>
+            </conditions>
+            <validations>
+              <validation field="..." expected="..."/>
+              <validation field="..." expected="..."/>
+            </validations>
+          </check>
         </checks>
       </file>
       <file type="fields">
         <name>...</name>
-        <conditions>
-          ...
-        </conditions>
         <checks>
-          ...
+          <check>
+            <conditions>
+              <le field="..." value="..."/>
+            </conditions>
+            <validations>
+              <validation field="..." expected="..."/>
+              <validation field="..." expected="..."/>
+            </validations>
+          </check>
         </checks>
       </file>
     </compare>

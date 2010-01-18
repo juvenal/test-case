@@ -2,33 +2,13 @@
 # -*- coding: iso-8859-1 -*-
 
 import xml.sax
-import xml.sax.handler
-import pprint
 
-class BookHandler(xml.sax.handler.ContentHandler):
-    def __init__(self):
-        self.buffer = ""
-
-    def startElement(self, name, attributes):
-        print "Abrindo elemento "+name
-        if attributes.getLength() > 0:
-            print "com atributos "
-            for attr in attributes.getNames():
-                print attr
-
-    def characters(self, data):
-        if data == '\n':
-            self.buffer += "<br>"
-        self.buffer += data
-
-    def endElement(self, name):
-        print "Fechando elemento "+name
-
+from bookHandler import BookHandler
 
 def ParseText(XMLfilename):
-    parser = xml.sax.make_parser()
-    handler = BookHandler()
-    parser.setContentHandler(handler)
-    parser.parse(XMLfilename)
-    return handler.buffer
+	parser = xml.sax.make_parser()
+	handler = BookHandler()
+	parser.setContentHandler(handler)
+	parser.parse(XMLfilename)
+	return handler.buffer
 
